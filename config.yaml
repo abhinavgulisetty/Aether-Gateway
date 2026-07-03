@@ -1,0 +1,48 @@
+# =============================================================================
+# AETHER-GATEWAY: Configuration File (Phase 3 - with Middleware)
+# =============================================================================
+# WHAT'S NEW IN PHASE 3:
+# - rate_limit section: Controls how many requests per second are allowed
+# - auth section: Requires an API key for all requests
+# =============================================================================
+
+listen: "0.0.0.0:3000"
+
+# ===== Rate Limiting Configuration =====
+# Uses the Token Bucket algorithm (see rate_limit.rs for how it works).
+#
+# max_tokens: The "burst" capacity. A client can make this many requests
+#             instantly before being rate-limited.
+# refill_rate: How many new tokens are added per second.
+#              So a client can sustain 2 requests/second over time.
+rate_limit:
+  max_tokens: 10
+  refill_rate: 2
+
+# ===== Authentication Configuration =====
+# When enabled, every request MUST include an `x-api-key` header
+# with one of the keys listed below. Otherwise -> 401 Unauthorized.
+#
+# Try it:
+#   curl http://localhost:3000/api/get                              -> 401
+#   curl -H "x-api-key: secret-key-123" http://localhost:3000/api/get  -> 200
+auth:
+  enabled: true
+  api_keys:
+    - "secret-key-123"
+    - "test-key-456"
+
+# ===== Routes =====
+# Same as Phase 2. Routes are checked in ORDER -- first match wins.
+routes:
+  - path_prefix: "/api"
+    upstream: "http://httpbin.org"
+    strip_prefix: true
+
+  - path_prefix: "/mock"
+    upstream: "http://jsonplaceholder.typicode.com"
+    strip_prefix: true
+
+  - path_prefix: "/"
+    upstream: "http://httpbin.org"
+    strip_prefix: false
