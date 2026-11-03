@@ -4,48 +4,20 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-# ===== DEPENDENCY GUIDE =====
-# In Rust, external libraries are called "crates" and are managed by Cargo.
-# This is like package.json (Node) or requirements.txt (Python).
-# Cargo downloads them from crates.io (like npm or PyPI).
-
-# Axum: The web framework. Like Express.js (Node) or Flask (Python).
-# It handles routing, request parsing, and response building.
-axum = "0.8"
-
-# Tokio: The async runtime. Like Python's asyncio but much faster.
-# "full" feature enables everything: timers, I/O, networking, etc.
-# Rust has NO built-in async runtime -- you choose one. Tokio is the standard.
-tokio = { version = "1", features = ["full"] }
-
-# Hyper: Low-level HTTP library. Axum is built ON TOP of hyper.
-# We need it directly because we'll build an HTTP *client* to forward requests
-# to upstream servers. Axum only handles the *server* side.
-hyper = { version = "1", features = ["full"] }
-
-# Hyper-util: Helper utilities for hyper 1.x.
-# The HTTP client builder lives here (it was moved out of hyper core).
-hyper-util = { version = "0.1", features = ["client-legacy", "tokio"] }
-
-# HTTP body utilities: Helps convert between different body types.
-# hyper 1.x uses a trait-based body system; this crate smooths the rough edges.
-http-body-util = "0.1"
-
-# Tower: A middleware framework. Like Express middleware or ASGI middleware.
-# "Layers" wrap your handlers to add cross-cutting concerns (auth, logging, etc.)
-tower = { version = "0.5", features = ["full"] }
-
-# Tower-HTTP: HTTP-specific Tower middleware (tracing, CORS, compression, etc.)
-tower-http = { version = "0.6", features = ["trace"] }
-
-# ===== PHASE 2 ADDITIONS =====
-
-# Serde: THE serialization/deserialization framework for Rust.
-# Like Python's json module or JS's JSON.parse/stringify -- but for ANY format.
-# "derive" feature lets you write #[derive(Serialize, Deserialize)] on structs
-# to auto-generate parsing code at compile time. Zero runtime reflection needed.
+axum = { version = "0.8", features = ["http2"] }
+hyper = { version = "1", features = ["client", "http1", "http2"] }
+hyper-util = { version = "0.1", features = ["client-legacy", "http1", "http2", "tokio"] }
 serde = { version = "1", features = ["derive"] }
-
-# Serde YAML: Adds YAML support to serde. After this, parsing a YAML file into
-# a Rust struct is literally one line of code: serde_yaml::from_str(&text)
 serde_yaml = "0.9"
+tokio = { version = "1", features = ["macros", "net", "rt-multi-thread", "signal", "time", "sync"] }
+http-body = "1"
+tower-service = "0.3"
+bytes = "1"
+prometheus = { version = "0.14", features = ["process"] }
+hyper-rustls = { version = "0.27", default-features = false, features = ["http1", "http2", "ring", "tls12", "webpki-roots"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+[profile.release]
+lto = "fat"
+codegen-units = 1

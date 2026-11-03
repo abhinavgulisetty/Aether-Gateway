@@ -1,0 +1,12 @@
+{
+  "downstream_cleartext_http2": {
+    "successful_requests": 100,
+    "errors": 0
+  },
+  "verified_https_upstream": {
+    "status": 200,
+    "http": "http/2",
+    "tls": "TLSv1.3",
+    "visit_scheme": "https"
+  }
+}

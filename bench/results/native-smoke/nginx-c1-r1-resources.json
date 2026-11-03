@@ -1,0 +1,78 @@
+{
+  "summary": {
+    "target": "nginx",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 6571.740367265066,
+    "p50_ms": 0.124717,
+    "p95_ms": 0.194914,
+    "p99_ms": 0.431468,
+    "cpu_percent": 35.49999261498187,
+    "upstream_cpu_percent": 51.27776711052932,
+    "peak_rss_mib": 30.3046875,
+    "upstream_new_connections": 6,
+    "upstream_requests": 6580,
+    "statuses": {
+      "200": 6580
+    },
+    "errors": {},
+    "elapsed_seconds": 1.0140847180009587
+  },
+  "samples": [
+    {
+      "elapsed": 0.0009863140003290027,
+      "cpu_seconds": 0.31,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.10243072700177436,
+      "cpu_seconds": 0.34,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.2037178380014666,
+      "cpu_seconds": 0.38,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.30496933800168335,
+      "cpu_seconds": 0.42,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.4071251150016906,
+      "cpu_seconds": 0.43,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.5083083339995937,
+      "cpu_seconds": 0.47,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.6094905999998446,
+      "cpu_seconds": 0.51,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.7106127549996017,
+      "cpu_seconds": 0.54,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.8117852670002321,
+      "cpu_seconds": 0.59,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 0.912889761999395,
+      "cpu_seconds": 0.63,
+      "rss_bytes": 31776768
+    },
+    {
+      "elapsed": 1.0140315600001486,
+      "cpu_seconds": 0.67,
+      "rss_bytes": 31776768
+    }
+  ]
+}

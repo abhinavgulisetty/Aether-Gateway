@@ -1,0 +1,146 @@
+[
+  {
+    "panel": "Request rate",
+    "expression": "sum(rate(aether_requests_total[30s]))",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Success rate",
+    "expression": "sum(rate(aether_requests_total{status=~\"2..|3..\"}[30s])) / clamp_min(sum(rate(aether_requests_total[30s])), 0.001)",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Server errors",
+    "expression": "sum(rate(aether_requests_total{status=~\"5..\"}[30s]))",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Active requests",
+    "expression": "sum(aether_active_requests)",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "p50 full-body latency",
+    "expression": "histogram_quantile(0.5, sum by (le) (rate(aether_request_duration_seconds_bucket[30s])))",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "p95 full-body latency",
+    "expression": "histogram_quantile(0.95, sum by (le) (rate(aether_request_duration_seconds_bucket[30s])))",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "p99 full-body latency",
+    "expression": "histogram_quantile(0.99, sum by (le) (rate(aether_request_duration_seconds_bucket[30s])))",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Active probe availability",
+    "expression": "aether_upstream_healthy",
+    "status": "success",
+    "series": 6
+  },
+  {
+    "panel": "Circuit (0 closed / 1 open / 2 trial)",
+    "expression": "aether_circuit_state",
+    "status": "success",
+    "series": 6
+  },
+  {
+    "panel": "Traffic distribution",
+    "expression": "sum by (upstream) (rate(aether_upstream_requests_total[30s]))",
+    "status": "success",
+    "series": 3
+  },
+  {
+    "panel": "p95 upstream header latency",
+    "expression": "histogram_quantile(0.95, sum by (le, upstream) (rate(aether_upstream_header_seconds_bucket[30s])))",
+    "status": "success",
+    "series": 3
+  },
+  {
+    "panel": "Active upstream attempts",
+    "expression": "sum by (upstream) (aether_upstream_active_requests)",
+    "status": "success",
+    "series": 3
+  },
+  {
+    "panel": "Circuit transitions",
+    "expression": "sum by (upstream) (increase(aether_circuit_transitions_total[30s]))",
+    "status": "success",
+    "series": 3
+  },
+  {
+    "panel": "Gateway CPU cores used",
+    "expression": "rate(process_cpu_seconds_total{job=\"aether\"}[30s])",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Gateway resident memory",
+    "expression": "process_resident_memory_bytes{job=\"aether\"}",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Physical connector activity (includes probes)",
+    "expression": "sum by (result) (rate(aether_connector_total[30s]))",
+    "status": "success",
+    "series": 3
+  },
+  {
+    "panel": "Host CPU busy",
+    "expression": "1 - avg(rate(node_cpu_seconds_total{mode=\"idle\"}[30s]))",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Host available memory",
+    "expression": "node_memory_MemAvailable_bytes",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Open file descriptors",
+    "expression": "process_open_fds{job=\"aether\"}",
+    "status": "success",
+    "series": 1
+  },
+  {
+    "panel": "Response status rates",
+    "expression": "sum by (status) (rate(aether_requests_total[30s]))",
+    "status": "success",
+    "series": 11
+  },
+  {
+    "panel": "Timeouts and retries",
+    "expression": "sum by (event) (rate(aether_events_total{event=~\"timeout|retry\"}[30s]))",
+    "status": "success",
+    "series": 2
+  },
+  {
+    "panel": "Policy and overload rejections",
+    "expression": "sum by (event) (rate(aether_events_total{event=~\"auth|rate_limit|overload\"}[30s]))",
+    "status": "success",
+    "series": 3
+  },
+  {
+    "panel": "Failure / cancellation rates",
+    "expression": "sum by (event) (rate(aether_events_total{event=~\"upstream_error|stream_error|cancelled|no_upstream\"}[30s]))",
+    "status": "success",
+    "series": 4
+  },
+  {
+    "panel": "Backend recovery",
+    "expression": "min by (upstream) (aether_upstream_healthy)",
+    "status": "success",
+    "series": 3
+  }
+]

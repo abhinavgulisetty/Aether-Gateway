@@ -1,0 +1,233 @@
+[
+  {
+    "target": "direct",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 12627.748751586649,
+    "successful_rps": 12627.748751586649,
+    "p50_ms": 0.06823,
+    "p95_ms": 0.103917,
+    "p99_ms": 0.173721,
+    "cpu_percent": 88.21132445973515,
+    "generator_cpu_percent": 40.029426837968025,
+    "upstream_cpu_percent": 88.21132445973515,
+    "peak_rss_mib": 79.67578125,
+    "upstream_new_connections": 1,
+    "upstream_requests": 63167,
+    "statuses": {
+      "200": 63167
+    },
+    "errors": {},
+    "elapsed_seconds": 5.044703757997922
+  },
+  {
+    "target": "original",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 4081.825801912781,
+    "successful_rps": 4081.825801912781,
+    "p50_ms": 0.220773,
+    "p95_ms": 0.32373,
+    "p99_ms": 0.46721799999999997,
+    "cpu_percent": 72.92920107007068,
+    "generator_cpu_percent": 15.706160268922227,
+    "upstream_cpu_percent": 74.3240218555638,
+    "peak_rss_mib": 4.4296875,
+    "upstream_new_connections": 20416,
+    "upstream_requests": 20416,
+    "statuses": {
+      "200": 20416
+    },
+    "errors": {},
+    "elapsed_seconds": 5.018565877999208
+  },
+  {
+    "target": "previous",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 6710.135948164012,
+    "successful_rps": 6710.135948164012,
+    "p50_ms": 0.135438,
+    "p95_ms": 0.189499,
+    "p99_ms": 0.259992,
+    "cpu_percent": 46.78364704996628,
+    "generator_cpu_percent": 22.814752215605534,
+    "upstream_cpu_percent": 46.982726399115066,
+    "peak_rss_mib": 4.32421875,
+    "upstream_new_connections": 0,
+    "upstream_requests": 33563,
+    "statuses": {
+      "200": 33563
+    },
+    "errors": {},
+    "elapsed_seconds": 5.0231227109979955
+  },
+  {
+    "target": "enhanced",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 6541.169811700912,
+    "successful_rps": 6541.169811700912,
+    "p50_ms": 0.141128,
+    "p95_ms": 0.19708900000000001,
+    "p99_ms": 0.264884,
+    "cpu_percent": 50.3739772834123,
+    "generator_cpu_percent": 22.58151910836508,
+    "upstream_cpu_percent": 45.79452480310211,
+    "peak_rss_mib": 6.18359375,
+    "upstream_new_connections": 0,
+    "upstream_requests": 32717,
+    "statuses": {
+      "200": 32717
+    },
+    "errors": {},
+    "elapsed_seconds": 5.022434472000896
+  },
+  {
+    "target": "nginx",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 7921.663407508565,
+    "successful_rps": 7921.663407508565,
+    "p50_ms": 0.117093,
+    "p95_ms": 0.16022,
+    "p99_ms": 0.22755,
+    "cpu_percent": 40.59448340491432,
+    "generator_cpu_percent": 26.15966218456742,
+    "upstream_cpu_percent": 54.32497043892947,
+    "peak_rss_mib": 30.01953125,
+    "upstream_new_connections": 40,
+    "upstream_requests": 39622,
+    "statuses": {
+      "200": 39622
+    },
+    "errors": {},
+    "elapsed_seconds": 5.025313365000329
+  },
+  {
+    "target": "original-unlimited",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 4216.85382339261,
+    "successful_rps": 4216.85382339261,
+    "p50_ms": 0.21613900000000003,
+    "p95_ms": 0.310368,
+    "p99_ms": 0.428716,
+    "cpu_percent": 74.31314033940421,
+    "generator_cpu_percent": 16.017510053418178,
+    "upstream_cpu_percent": 72.71929282542234,
+    "peak_rss_mib": 4.48046875,
+    "upstream_new_connections": 21091,
+    "upstream_requests": 21091,
+    "statuses": {
+      "200": 21091
+    },
+    "errors": {},
+    "elapsed_seconds": 5.019300735999423
+  },
+  {
+    "target": "original-unlimited",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 4229.77690310485,
+    "successful_rps": 4229.77690310485,
+    "p50_ms": 0.214807,
+    "p95_ms": 0.31208400000000003,
+    "p99_ms": 0.42253,
+    "cpu_percent": 74.3470842301859,
+    "generator_cpu_percent": 15.553509681925718,
+    "upstream_cpu_percent": 73.94844034691413,
+    "peak_rss_mib": 4.60546875,
+    "upstream_new_connections": 21152,
+    "upstream_requests": 21152,
+    "statuses": {
+      "200": 21152
+    },
+    "errors": {},
+    "elapsed_seconds": 5.017009125000186
+  },
+  {
+    "target": "nginx",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 7999.74444966417,
+    "successful_rps": 7999.74444966417,
+    "p50_ms": 0.11656599999999999,
+    "p95_ms": 0.158334,
+    "p99_ms": 0.227872,
+    "cpu_percent": 39.99454401197474,
+    "generator_cpu_percent": 26.669993565398194,
+    "upstream_cpu_percent": 55.116859160781026,
+    "peak_rss_mib": 30.01953125,
+    "upstream_new_connections": 41,
+    "upstream_requests": 40009,
+    "statuses": {
+      "200": 40009
+    },
+    "errors": {},
+    "elapsed_seconds": 5.025685501997941
+  },
+  {
+    "target": "enhanced",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 7174.693159651721,
+    "successful_rps": 7174.693159651721,
+    "p50_ms": 0.129947,
+    "p95_ms": 0.190461,
+    "p99_ms": 0.264808,
+    "cpu_percent": 49.39960107303884,
+    "generator_cpu_percent": 22.15301207087651,
+    "upstream_cpu_percent": 46.21253003606861,
+    "peak_rss_mib": 6.18359375,
+    "upstream_new_connections": 0,
+    "upstream_requests": 35885,
+    "statuses": {
+      "200": 35885
+    },
+    "errors": {},
+    "elapsed_seconds": 5.02028345600047
+  },
+  {
+    "target": "previous",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 9496.538105408747,
+    "successful_rps": 9496.538105408747,
+    "p50_ms": 0.098379,
+    "p95_ms": 0.130066,
+    "p99_ms": 0.179814,
+    "cpu_percent": 47.57277452248976,
+    "generator_cpu_percent": 23.1242299736863,
+    "upstream_cpu_percent": 48.16992231984323,
+    "peak_rss_mib": 4.32421875,
+    "upstream_new_connections": 0,
+    "upstream_requests": 47500,
+    "statuses": {
+      "200": 47500
+    },
+    "errors": {},
+    "elapsed_seconds": 5.023881881999841
+  },
+  {
+    "target": "original",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 5754.385409813631,
+    "successful_rps": 5754.385409813631,
+    "p50_ms": 0.159043,
+    "p95_ms": 0.22471000000000002,
+    "p99_ms": 0.32178799999999996,
+    "cpu_percent": 74.36409755458938,
+    "generator_cpu_percent": 15.317827827678203,
+    "upstream_cpu_percent": 72.17105446316714,
+    "peak_rss_mib": 4.4296875,
+    "upstream_new_connections": 28783,
+    "upstream_requests": 28783,
+    "statuses": {
+      "200": 28783
+    },
+    "errors": {},
+    "elapsed_seconds": 5.0158613129970036
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "listen": "127.0.0.1:19206",
+  "auth": {
+    "enabled": false
+  },
+  "rate_limit": {
+    "enabled": false
+  },
+  "routes": [
+    {
+      "path_prefix": "/",
+      "upstream": "http://127.0.0.1:19201"
+    }
+  ]
+}

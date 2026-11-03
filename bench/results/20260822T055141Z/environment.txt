@@ -1,0 +1,9 @@
+duration=10s
+connections=128
+runs=3
+kernel=Linux 7.0.0-29-generic x86_64
+cpu=Intel Core i5-10300H @ 2.50GHz (4 cores, 8 threads)
+memory=14 GiB
+docker=29.7.2
+nginx=1.29-alpine
+load_generator=oha sha256:57c2247792c1466c88ecc83ddb9253aa0b58dcb852b1d7f2026a0acf7744c965

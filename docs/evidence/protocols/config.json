@@ -1,0 +1,28 @@
+{
+  "listen": "127.0.0.1:19311",
+  "rate_limit": {
+    "enabled": false
+  },
+  "health": {
+    "path": "/",
+    "interval_ms": 1000,
+    "timeout_ms": 5000
+  },
+  "resilience": {
+    "connect_timeout_ms": 3000,
+    "response_timeout_ms": 5000,
+    "request_timeout_ms": 10000
+  },
+  "routes": [
+    {
+      "path_prefix": "/local",
+      "strip_prefix": true,
+      "upstream": "http://127.0.0.1:19111"
+    },
+    {
+      "path_prefix": "/remote",
+      "strip_prefix": true,
+      "upstream": "https://www.cloudflare.com"
+    }
+  ]
+}

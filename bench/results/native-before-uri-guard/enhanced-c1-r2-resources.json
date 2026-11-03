@@ -1,0 +1,280 @@
+{
+  "summary": {
+    "target": "enhanced",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 9859.84586228736,
+    "successful_rps": 9859.84586228736,
+    "p50_ms": 0.0969,
+    "p95_ms": 0.12040200000000001,
+    "p99_ms": 0.15135800000000002,
+    "cpu_percent": 51.00117523345792,
+    "generator_cpu_percent": 21.149988145974103,
+    "upstream_cpu_percent": 47.01670841834416,
+    "peak_rss_mib": 6.59375,
+    "upstream_new_connections": 0,
+    "upstream_requests": 49310,
+    "statuses": {
+      "200": 49310
+    },
+    "errors": {},
+    "elapsed_seconds": 5.01949217499714
+  },
+  "samples": [
+    {
+      "elapsed": 0.0003151739983877633,
+      "cpu_seconds": 4.65,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.10054068099998403,
+      "cpu_seconds": 4.69,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.20080555499953334,
+      "cpu_seconds": 4.75,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.3010285370000929,
+      "cpu_seconds": 4.8,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.4012506809995102,
+      "cpu_seconds": 4.86,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.5014754009971512,
+      "cpu_seconds": 4.91,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.6017267879979045,
+      "cpu_seconds": 4.96,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.7019843519992719,
+      "cpu_seconds": 5.0,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.8022987879994616,
+      "cpu_seconds": 5.04,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 0.902564515999984,
+      "cpu_seconds": 5.07,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.0027979429978586,
+      "cpu_seconds": 5.13,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.1030685999976413,
+      "cpu_seconds": 5.18,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.2032915859999775,
+      "cpu_seconds": 5.23,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.3035401159977482,
+      "cpu_seconds": 5.28,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.4037961369976983,
+      "cpu_seconds": 5.32,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.504059688999405,
+      "cpu_seconds": 5.37,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.6043279749974317,
+      "cpu_seconds": 5.42,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.7045946809994348,
+      "cpu_seconds": 5.48,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.8048537439972279,
+      "cpu_seconds": 5.53,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 1.9051111070002662,
+      "cpu_seconds": 5.59,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.005361527997593,
+      "cpu_seconds": 5.64,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.10558014200069,
+      "cpu_seconds": 5.69,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.2058188589981,
+      "cpu_seconds": 5.74,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.3060438799984695,
+      "cpu_seconds": 5.79,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.4063090609997744,
+      "cpu_seconds": 5.84,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.5065430449976702,
+      "cpu_seconds": 5.9,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.606822507998004,
+      "cpu_seconds": 5.95,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.707081827997172,
+      "cpu_seconds": 6.0,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.807299019998027,
+      "cpu_seconds": 6.05,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 2.9075264829989464,
+      "cpu_seconds": 6.11,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.0077895549984532,
+      "cpu_seconds": 6.15,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.108040422997874,
+      "cpu_seconds": 6.21,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.2082753350005078,
+      "cpu_seconds": 6.26,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.3085084189988265,
+      "cpu_seconds": 6.32,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.4087611089998973,
+      "cpu_seconds": 6.37,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.509010870999191,
+      "cpu_seconds": 6.42,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.6092654569984006,
+      "cpu_seconds": 6.48,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.7095216550005716,
+      "cpu_seconds": 6.54,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.809786477999296,
+      "cpu_seconds": 6.59,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 3.9100275819982926,
+      "cpu_seconds": 6.64,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.01027183199767,
+      "cpu_seconds": 6.7,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.110519828998804,
+      "cpu_seconds": 6.74,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.210773577000509,
+      "cpu_seconds": 6.8,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.311047199000313,
+      "cpu_seconds": 6.85,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.411282044999098,
+      "cpu_seconds": 6.91,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.511554247997992,
+      "cpu_seconds": 6.95,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.6118299619993195,
+      "cpu_seconds": 7.0,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.71209051400001,
+      "cpu_seconds": 7.05,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.812354040997889,
+      "cpu_seconds": 7.11,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 4.912569182997686,
+      "cpu_seconds": 7.17,
+      "rss_bytes": 6914048
+    },
+    {
+      "elapsed": 5.01280564300032,
+      "cpu_seconds": 7.21,
+      "rss_bytes": 6914048
+    }
+  ]
+}

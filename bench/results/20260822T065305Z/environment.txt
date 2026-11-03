@@ -1,0 +1,12 @@
+duration=10s
+connections=128
+runs=5
+rustflags=-C target-cpu=native
+commit=446d66ba20387f984e16833d516e5ebdfc48e57e
+Linux 7.0.0-29-generic x86_64 GNU/Linux
+CPU(s):                                  8
+Model name:                              Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz
+Thread(s) per core:                      2
+Core(s) per socket:                      4
+Socket(s):                               1
+Docker 29.7.2

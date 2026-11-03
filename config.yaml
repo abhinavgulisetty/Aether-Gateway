@@ -1,48 +1,37 @@
-# =============================================================================
-# AETHER-GATEWAY: Configuration File (Phase 3 - with Middleware)
-# =============================================================================
-# WHAT'S NEW IN PHASE 3:
-# - rate_limit section: Controls how many requests per second are allowed
-# - auth section: Requires an API key for all requests
-# =============================================================================
-
-listen: "0.0.0.0:3000"
-
-# ===== Rate Limiting Configuration =====
-# Uses the Token Bucket algorithm (see rate_limit.rs for how it works).
-#
-# max_tokens: The "burst" capacity. A client can make this many requests
-#             instantly before being rate-limited.
-# refill_rate: How many new tokens are added per second.
-#              So a client can sustain 2 requests/second over time.
-rate_limit:
-  max_tokens: 10
-  refill_rate: 2
-
-# ===== Authentication Configuration =====
-# When enabled, every request MUST include an `x-api-key` header
-# with one of the keys listed below. Otherwise -> 401 Unauthorized.
-#
-# Try it:
-#   curl http://localhost:3000/api/get                              -> 401
-#   curl -H "x-api-key: secret-key-123" http://localhost:3000/api/get  -> 200
+# All services run locally; start upstreams with ./scripts/demo.sh start.
+listen: "127.0.0.1:3000"
 auth:
   enabled: true
-  api_keys:
-    - "secret-key-123"
-    - "test-key-456"
-
-# ===== Routes =====
-# Same as Phase 2. Routes are checked in ORDER -- first match wins.
+  api_keys: ["local-demo-key"]
+rate_limit:
+  enabled: true
+  max_tokens: 100
+  refill_rate: 50
+  max_clients: 4096
+  idle_seconds: 60
+limits:
+  max_in_flight: 256
+  max_body_bytes: 16777216
+  pool_max_idle_per_host: 32
+  pool_idle_seconds: 30
+  shutdown_seconds: 10
+health:
+  path: /health
+  interval_ms: 500
+  timeout_ms: 200
+resilience:
+  connect_timeout_ms: 300
+  response_timeout_ms: 700
+  request_timeout_ms: 5000
+  max_attempts: 2
+  retry_backoff_ms: 20
+  failure_threshold: 3
+  cooldown_ms: 2000
 routes:
-  - path_prefix: "/api"
-    upstream: "http://httpbin.org"
+  - path_prefix: /api
     strip_prefix: true
-
-  - path_prefix: "/mock"
-    upstream: "http://jsonplaceholder.typicode.com"
-    strip_prefix: true
-
-  - path_prefix: "/"
-    upstream: "http://httpbin.org"
-    strip_prefix: false
+    policy: least_active
+    upstreams: ["http://127.0.0.1:9101", "http://127.0.0.1:9102", "http://127.0.0.1:9103"]
+  - path_prefix: /
+    policy: round_robin
+    upstreams: ["http://127.0.0.1:9101", "http://127.0.0.1:9102", "http://127.0.0.1:9103"]

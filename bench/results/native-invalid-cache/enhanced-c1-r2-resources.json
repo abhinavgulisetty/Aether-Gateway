@@ -1,0 +1,280 @@
+{
+  "summary": {
+    "target": "enhanced",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 7174.693159651721,
+    "successful_rps": 7174.693159651721,
+    "p50_ms": 0.129947,
+    "p95_ms": 0.190461,
+    "p99_ms": 0.264808,
+    "cpu_percent": 49.39960107303884,
+    "generator_cpu_percent": 22.15301207087651,
+    "upstream_cpu_percent": 46.21253003606861,
+    "peak_rss_mib": 6.18359375,
+    "upstream_new_connections": 0,
+    "upstream_requests": 35885,
+    "statuses": {
+      "200": 35885
+    },
+    "errors": {},
+    "elapsed_seconds": 5.02028345600047
+  },
+  "samples": [
+    {
+      "elapsed": 0.0003815400013991166,
+      "cpu_seconds": 4.57,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.10072304100322071,
+      "cpu_seconds": 4.61,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.20107349800309748,
+      "cpu_seconds": 4.66,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.30145796299984795,
+      "cpu_seconds": 4.72,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.40178347600158304,
+      "cpu_seconds": 4.76,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.5021299860018189,
+      "cpu_seconds": 4.82,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.6024301480028953,
+      "cpu_seconds": 4.87,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.7027694180032995,
+      "cpu_seconds": 4.91,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.8030852780029818,
+      "cpu_seconds": 4.95,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 0.9045842180021282,
+      "cpu_seconds": 5.01,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.0048856670000532,
+      "cpu_seconds": 5.05,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.1052068790013436,
+      "cpu_seconds": 5.11,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.2054909100006626,
+      "cpu_seconds": 5.16,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.3058377350025694,
+      "cpu_seconds": 5.21,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.4061177570001746,
+      "cpu_seconds": 5.27,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.5063993630028563,
+      "cpu_seconds": 5.32,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.6067241380005726,
+      "cpu_seconds": 5.36,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.707052008001483,
+      "cpu_seconds": 5.42,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.8073447440001473,
+      "cpu_seconds": 5.46,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 1.9077421890033293,
+      "cpu_seconds": 5.52,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.008123637002427,
+      "cpu_seconds": 5.56,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.1083983530006662,
+      "cpu_seconds": 5.62,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.2087375760020223,
+      "cpu_seconds": 5.67,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.309018110001489,
+      "cpu_seconds": 5.72,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.4093641610015766,
+      "cpu_seconds": 5.77,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.509699283000373,
+      "cpu_seconds": 5.81,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.610018936000415,
+      "cpu_seconds": 5.86,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.71038803600095,
+      "cpu_seconds": 5.91,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.8106720380019397,
+      "cpu_seconds": 5.96,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 2.9110206630030007,
+      "cpu_seconds": 6.02,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.0113966110002366,
+      "cpu_seconds": 6.07,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.1117507920025673,
+      "cpu_seconds": 6.12,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.2120315749998554,
+      "cpu_seconds": 6.16,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.312352431999898,
+      "cpu_seconds": 6.22,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.41260094700192,
+      "cpu_seconds": 6.27,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.5128365620003024,
+      "cpu_seconds": 6.32,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.6131390440023097,
+      "cpu_seconds": 6.38,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.713438249000319,
+      "cpu_seconds": 6.41,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.8137333710001258,
+      "cpu_seconds": 6.46,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 3.913977259002422,
+      "cpu_seconds": 6.51,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.014284484001109,
+      "cpu_seconds": 6.56,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.114566136002395,
+      "cpu_seconds": 6.61,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.214858421000827,
+      "cpu_seconds": 6.67,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.31517924900254,
+      "cpu_seconds": 6.71,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.415508691003197,
+      "cpu_seconds": 6.76,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.515754493000713,
+      "cpu_seconds": 6.81,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.616048638999928,
+      "cpu_seconds": 6.85,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.716294664001907,
+      "cpu_seconds": 6.91,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.816552570002386,
+      "cpu_seconds": 6.96,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 4.916790420000325,
+      "cpu_seconds": 7.0,
+      "rss_bytes": 6483968
+    },
+    {
+      "elapsed": 5.017032699000993,
+      "cpu_seconds": 7.05,
+      "rss_bytes": 6483968
+    }
+  ]
+}

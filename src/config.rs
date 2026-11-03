@@ -1,254 +1,260 @@
-// =============================================================================
-// AETHER-GATEWAY: Phase 2 - Configuration Module
-// =============================================================================
-// This module reads config.yaml and turns it into Rust structs.
-// Other modules (like proxy.rs) use these structs to make routing decisions.
-//
-// KEY IDEA: Configuration as Code
-// Instead of hardcoding "httpbin.org" in proxy.rs, we define routes in a YAML
-// file. This means you can change routing WITHOUT recompiling -- just edit
-// the YAML and restart (hot reload comes in Phase 4b).
-// =============================================================================
-
-// ===== RUST CONCEPT: Derive macros =====
-// #[derive(X, Y, Z)] is one of Rust's most powerful features.
-// It AUTO-GENERATES implementations of traits (interfaces) for your struct.
-//
-// Think of it like Python's @dataclass decorator, but much more powerful:
-//   @dataclass           -> #[derive(Debug, Clone)]
-//   json.loads()         -> #[derive(Deserialize)]
-//   json.dumps()         -> #[derive(Serialize)]
-//
-// The compiler literally writes the code for you at compile time.
-// No runtime reflection needed (unlike Python/JS).
 use serde::Deserialize;
+use std::{collections::HashSet, error::Error, fs};
 
-// ===== RUST CONCEPT: Structs =====
-// A struct is Rust's primary data type. Like a Python dataclass or a JS object,
-// but with a FIXED shape known at compile time.
-//
-// Unlike Python classes, structs have NO inheritance. Rust uses COMPOSITION
-// (embedding structs in other structs) and TRAITS (interfaces) instead.
-//
-// #[derive(Debug)]       - Lets you print with {:?} (like Python's __repr__)
-// #[derive(Clone)]       - Lets you deep-copy with .clone() (since Rust has no GC)
-// #[derive(Deserialize)] - Auto-generates YAML/JSON/TOML parsing code
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct GatewayConfig {
-    /// The address to listen on, e.g., "0.0.0.0:3000"
     pub listen: String,
-
-    /// The list of routing rules, checked in order.
-    /// ===== RUST CONCEPT: Vec<T> =====
-    /// Vec is Rust's dynamic array, like Python's `list` or JS's `Array`.
-    /// Vec<RouteConfig> means "a list of RouteConfig items".
-    ///
-    /// Key difference from Python: Vec owns its elements. When the Vec is
-    /// dropped (goes out of scope), all elements are freed. No GC needed.
     pub routes: Vec<RouteConfig>,
-
-    // ===== PHASE 3 ADDITIONS =====
-
-    /// Rate limiting configuration. Optional in YAML thanks to #[serde(default)].
-    ///
-    /// ===== RUST CONCEPT: #[serde(default)] on structs =====
-    /// When applied to a struct field, #[serde(default)] will use the
-    /// Default trait implementation if the field is missing from the YAML.
-    /// We implement Default for RateLimitConfig below to provide sensible defaults.
     #[serde(default)]
     pub rate_limit: RateLimitConfig,
-
-    /// Authentication configuration. Optional in YAML.
     #[serde(default)]
     pub auth: AuthConfig,
+    #[serde(default)]
+    pub limits: Limits,
+    #[serde(default)]
+    pub health: HealthConfig,
+    #[serde(default)]
+    pub resilience: Resilience,
 }
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Clone, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct RouteConfig {
-    /// The path prefix to match, e.g., "/api"
     pub path_prefix: String,
-
-    /// The upstream URL to forward to, e.g., "http://httpbin.org"
-    pub upstream: String,
-
-    /// Whether to remove the path_prefix before forwarding.
-    /// If true: /api/get -> upstream/get
-    /// If false: /api/get -> upstream/api/get
-    ///
-    /// ===== RUST CONCEPT: #[serde(default)] =====
-    /// If this field is missing from the YAML file, use the type's default value.
-    /// For `bool`, the default is `false`.
-    /// This is like Python's dataclass field with `default=False`.
+    // The singular field keeps existing local configurations readable.
+    #[serde(default)]
+    pub upstream: Option<String>,
+    #[serde(default)]
+    pub upstreams: Vec<String>,
     #[serde(default)]
     pub strip_prefix: bool,
+    #[serde(default)]
+    pub policy: Policy,
 }
 
-// ===== RUST CONCEPT: impl blocks =====
-// Methods are defined SEPARATELY from the struct, in `impl` blocks.
-// This is different from Python/JS where methods are inside the class body.
-//
-// You can have MULTIPLE impl blocks for the same struct (useful for organizing
-// code, or when different impl blocks have different trait bounds).
-//
-// Think of it as:
-//   Python: class GatewayConfig:
-//               def load_from_file(cls, path): ...
-//   Rust:   impl GatewayConfig {
-//               pub fn load_from_file(path: &str) -> ... { ... }
-//           }
-impl GatewayConfig {
-    // ===== RUST CONCEPT: Result<T, E> for error handling =====
-    // Rust has NO exceptions. Functions that can fail return Result<OkType, ErrorType>.
-    //
-    // Result<Self, Box<dyn std::error::Error>> means:
-    //   - On success: return a GatewayConfig (Self = the type we're implementing)
-    //   - On failure: return ANY error type (Box<dyn Error> is like Python's Exception base)
-    //
-    // Box<dyn Error> explanation:
-    //   Box<T>  = heap-allocate the value (needed because different errors have different sizes)
-    //   dyn     = dynamic dispatch (like a Python ABC -- we don't know the exact type at compile time)
-    //   Error   = the std::error::Error trait (interface) that all errors implement
-    //
-    // Python equivalent: def load_from_file(path: str) -> GatewayConfig:  (can raise Exception)
-    pub fn load_from_file(path: &str) -> Result<Self, Box<dyn std::error::Error>> {
-        // ===== RUST CONCEPT: The ? operator =====
-        // The `?` at the end is Rust's error propagation operator.
-        // It's syntactic sugar for:
-        //
-        //   match std::fs::read_to_string(path) {
-        //       Ok(contents) => contents,        // unwrap the value
-        //       Err(e) => return Err(e.into()),   // return error to caller
-        //   }
-        //
-        // Python equivalent: contents = open(path).read()  (exception propagates automatically)
-        //
-        // The difference: In Python, exceptions propagate implicitly. In Rust, you must
-        // explicitly opt in with `?`. This means you can ALWAYS see where errors might occur
-        // by looking for `?` in the code. No hidden surprises.
-        let contents = std::fs::read_to_string(path)?;
+#[derive(Clone, Copy, Default, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum Policy {
+    #[default]
+    RoundRobin,
+    LeastActive,
+}
 
-        // ===== RUST CONCEPT: Serde deserialization (the magic) =====
-        // serde_yaml::from_str() parses the YAML string into a GatewayConfig struct.
-        // The #[derive(Deserialize)] we added to our struct auto-generated the code
-        // that knows how to read each field from YAML.
-        //
-        // Python equivalent: config = GatewayConfig(**yaml.safe_load(text))
-        // JS equivalent: const config = yaml.parse(text) as GatewayConfig
-        //
-        // The type annotation `: GatewayConfig` tells serde WHAT struct to parse into.
-        // Rust figures this out from the return type, so we could also write:
-        //   let config = serde_yaml::from_str(&contents)?;
-        // and it would infer the type. We're explicit here for clarity.
-        let config: GatewayConfig = serde_yaml::from_str(&contents)?;
-
-        // ===== RUST CONCEPT: Ok() wrapper =====
-        // Since our return type is Result<Self, ...>, we must wrap the success
-        // value in Ok(). This is explicit: the caller MUST handle both Ok and Err.
-        Ok(config)
-    }
-
-    // Find the first matching route for a given request path.
-    //
-    // ===== RUST CONCEPT: &self (self-reference) =====
-    // &self means "immutable borrow of self" -- read-only access to the struct.
-    // Like Python's `def method(self):` but you can't modify self.
-    //
-    // &str is a borrowed string slice -- we're borrowing the path, not owning it.
-    //
-    // ===== RUST CONCEPT: Option<T> =====
-    // Returns Some(&RouteConfig) if a matching route is found, None if not.
-    // Option is Rust's replacement for null/None/undefined.
-    //
-    // &RouteConfig (with &) means we return a REFERENCE to the route inside
-    // our Vec, not a copy. This avoids unnecessary allocations.
-    //
-    // Python equivalent: def find_route(self, path: str) -> Optional[RouteConfig]:
-    pub fn find_route(&self, path: &str) -> Option<&RouteConfig> {
-        // ===== RUST CONCEPT: Iterator methods =====
-        // .iter() borrows each element of the Vec (gives &RouteConfig for each).
-        // .find() returns the first element matching the predicate, wrapped in Option.
-        //
-        // The |route| is a CLOSURE (anonymous function). Like Python's lambda:
-        //   lambda route: path.startswith(route.path_prefix)
-        //
-        // .find() returns Option<&&RouteConfig>... but Rust auto-derefs, so
-        // we get Option<&RouteConfig> in practice.
-        self.routes.iter().find(|route| path.starts_with(&route.path_prefix))
+#[derive(Clone, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct Limits {
+    pub max_in_flight: usize,
+    pub max_body_bytes: usize,
+    pub pool_max_idle_per_host: usize,
+    pub pool_idle_seconds: u64,
+    pub shutdown_seconds: u64,
+}
+impl Default for Limits {
+    fn default() -> Self {
+        Self {
+            max_in_flight: 1024,
+            max_body_bytes: 16 * 1024 * 1024,
+            pool_max_idle_per_host: 32,
+            pool_idle_seconds: 30,
+            shutdown_seconds: 10,
+        }
     }
 }
 
-// =============================================================================
-// Phase 3: Rate Limiting and Authentication Configuration
-// =============================================================================
+#[derive(Clone, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct HealthConfig {
+    pub interval_ms: u64,
+    pub timeout_ms: u64,
+    pub path: String,
+}
+impl Default for HealthConfig {
+    fn default() -> Self {
+        Self {
+            interval_ms: 1000,
+            timeout_ms: 300,
+            path: "/health".into(),
+        }
+    }
+}
 
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Clone, Deserialize)]
+#[serde(default, deny_unknown_fields)]
+pub struct Resilience {
+    pub connect_timeout_ms: u64,
+    pub response_timeout_ms: u64,
+    pub request_timeout_ms: u64,
+    pub max_attempts: usize,
+    pub retry_backoff_ms: u64,
+    pub failure_threshold: u32,
+    pub cooldown_ms: u64,
+}
+impl Default for Resilience {
+    fn default() -> Self {
+        Self {
+            connect_timeout_ms: 300,
+            response_timeout_ms: 1000,
+            request_timeout_ms: 5000,
+            max_attempts: 2,
+            retry_backoff_ms: 20,
+            failure_threshold: 3,
+            cooldown_ms: 2000,
+        }
+    }
+}
+
+#[derive(Clone, Deserialize)]
+#[serde(default, deny_unknown_fields)]
 pub struct RateLimitConfig {
-    /// Maximum number of tokens (burst capacity)
-    #[serde(default = "default_max_tokens")]
+    pub enabled: bool,
     pub max_tokens: f64,
-
-    /// Tokens added per second (sustained rate)
-    #[serde(default = "default_refill_rate")]
     pub refill_rate: f64,
+    pub max_clients: usize,
+    pub idle_seconds: u64,
 }
-
-// ===== RUST CONCEPT: The Default trait =====
-// Default is a standard trait that provides a "default value" for a type.
-// It's like Python's `__init__` with all default parameters, or a JS class
-// with default property values.
-//
-// #[serde(default)] on a struct field uses this implementation when the
-// field is missing from the YAML. So your config.yaml doesn't need to
-// include rate_limit at all -- it'll get these defaults.
-//
-// You can derive Default automatically (#[derive(Default)]) for structs
-// where all fields have Default implementations (bool = false, f64 = 0.0,
-// String = "", Vec = []). But here we want CUSTOM defaults (10.0 instead
-// of 0.0), so we implement it manually.
 impl Default for RateLimitConfig {
     fn default() -> Self {
         Self {
+            enabled: true,
             max_tokens: 10.0,
             refill_rate: 2.0,
+            max_clients: 4096,
+            idle_seconds: 60,
         }
     }
 }
 
-// ===== RUST CONCEPT: Helper functions for serde defaults =====
-// #[serde(default = "function_name")] calls a SPECIFIC function for the default.
-// This is useful when you want per-field defaults different from the type's Default.
-fn default_max_tokens() -> f64 {
-    10.0
-}
-fn default_refill_rate() -> f64 {
-    2.0
-}
-
-#[derive(Debug, Clone, Deserialize)]
+#[derive(Clone, Default, Deserialize)]
+#[serde(default, deny_unknown_fields)]
 pub struct AuthConfig {
-    /// Whether authentication is enabled at all.
-    /// Default: false (so existing config.yaml files without auth still work).
-    #[serde(default)]
     pub enabled: bool,
-
-    /// List of valid API keys. Requests must include one in the `x-api-key` header.
-    ///
-    /// ===== RUST CONCEPT: Vec default =====
-    /// Vec<String> defaults to an empty Vec (no keys configured).
-    /// #[serde(default)] uses this, so the field is optional in YAML.
-    #[serde(default)]
     pub api_keys: Vec<String>,
 }
 
-// We can use #[derive(Default)] here because:
-//   bool defaults to false
-//   Vec<String> defaults to empty vec
-// Both are what we want, so no custom impl needed.
-impl Default for AuthConfig {
-    fn default() -> Self {
-        Self {
-            enabled: false,
-            api_keys: Vec::new(),
+impl RouteConfig {
+    pub fn origins(&self) -> Vec<&str> {
+        self.upstream
+            .iter()
+            .map(String::as_str)
+            .chain(self.upstreams.iter().map(String::as_str))
+            .collect()
+    }
+    pub fn matches(&self, path: &str) -> bool {
+        path == self.path_prefix
+            || (path.starts_with(&self.path_prefix)
+                && (self.path_prefix.ends_with('/')
+                    || path.as_bytes().get(self.path_prefix.len()) == Some(&b'/')))
+    }
+}
+
+impl GatewayConfig {
+    pub fn load_from_file(path: &str) -> Result<Self, Box<dyn Error>> {
+        let config: Self = serde_yaml::from_str(&fs::read_to_string(path)?)?;
+        config.validate()?;
+        Ok(config)
+    }
+    fn validate(&self) -> Result<(), Box<dyn Error>> {
+        self.listen.parse::<std::net::SocketAddr>()?;
+        if self.routes.is_empty() || self.routes.len() > 64 {
+            return Err("configure between 1 and 64 routes".into());
         }
+        let l = &self.limits;
+        let h = &self.health;
+        let r = &self.resilience;
+        if l.max_in_flight == 0
+            || l.max_in_flight > 1_000_000
+            || l.max_body_bytes == 0
+            || l.pool_max_idle_per_host == 0
+            || l.pool_idle_seconds == 0
+            || l.shutdown_seconds == 0
+            || h.interval_ms == 0
+            || h.timeout_ms == 0
+            || r.connect_timeout_ms == 0
+            || r.response_timeout_ms == 0
+            || r.request_timeout_ms == 0
+            || !(1..=3).contains(&r.max_attempts)
+            || r.failure_threshold == 0
+            || r.cooldown_ms == 0
+        {
+            return Err("invalid zero/out-of-range resource or timeout setting".into());
+        }
+        // Bounds prevent duration overflow and accidental effectively infinite deadlines.
+        if [
+            h.interval_ms,
+            h.timeout_ms,
+            r.connect_timeout_ms,
+            r.response_timeout_ms,
+            r.request_timeout_ms,
+            r.retry_backoff_ms,
+            r.cooldown_ms,
+        ]
+        .iter()
+        .any(|v| *v > 3_600_000)
+            || [
+                l.pool_idle_seconds,
+                l.shutdown_seconds,
+                self.rate_limit.idle_seconds,
+            ]
+            .iter()
+            .any(|v| *v > 86400)
+        {
+            return Err("durations exceed local prototype limits".into());
+        }
+        let _: hyper::http::uri::PathAndQuery = h.path.parse()?;
+        if !h.path.starts_with('/') {
+            return Err("health path must start with '/'".into());
+        }
+        let rate = &self.rate_limit;
+        if !rate.max_tokens.is_finite()
+            || !rate.refill_rate.is_finite()
+            || rate.max_tokens < 1.0
+            || rate.refill_rate <= 0.0
+            || rate.max_clients == 0
+            || rate.idle_seconds == 0
+        {
+            return Err("rate_limit values must be finite and positive".into());
+        }
+        if self.auth.enabled
+            && (self.auth.api_keys.is_empty() || self.auth.api_keys.iter().any(|k| k.is_empty()))
+        {
+            return Err("enabled auth requires nonempty keys".into());
+        }
+        let mut prefixes = HashSet::new();
+        for route in &self.routes {
+            if !route.path_prefix.starts_with('/')
+                || !prefixes.insert(&route.path_prefix)
+                || route.path_prefix.contains(['?', '#'])
+            {
+                return Err("route prefixes must be unique paths starting with '/'".into());
+            }
+            let origins = route.origins();
+            if origins.is_empty()
+                || origins.len() > 32
+                || (route.upstream.is_some() && !route.upstreams.is_empty())
+            {
+                return Err("use upstream OR 1..32 upstreams per route".into());
+            }
+            let mut unique = HashSet::new();
+            for origin in origins {
+                let uri: hyper::Uri = origin.parse()?;
+                let _: hyper::Uri =
+                    format!("{}{}", origin.trim_end_matches('/'), h.path).parse()?;
+                if !matches!(uri.scheme_str(), Some("http" | "https"))
+                    || uri.authority().is_none()
+                    || uri.authority().unwrap().as_str().contains('@')
+                    || uri.path() != "/"
+                    || uri.query().is_some()
+                    || origin.contains('#')
+                    || !unique.insert(origin.trim_end_matches('/'))
+                {
+                    return Err(format!(
+                        "upstream must be a unique HTTP(S) origin without a path: {origin}"
+                    )
+                    .into());
+                }
+            }
+        }
+        Ok(())
     }
 }

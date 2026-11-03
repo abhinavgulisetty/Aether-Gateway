@@ -1,0 +1,2 @@
+-TokenBucket::new(10.0, 2.0)
++TokenBucket::new(1e12, 1e12)

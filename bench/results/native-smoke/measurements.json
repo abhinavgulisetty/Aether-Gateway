@@ -1,0 +1,117 @@
+[
+  {
+    "target": "direct",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 10847.459901616614,
+    "p50_ms": 0.082329,
+    "p95_ms": 0.127395,
+    "p99_ms": 0.24647599999999997,
+    "cpu_percent": 110.27508419078617,
+    "upstream_cpu_percent": 110.27508419078617,
+    "peak_rss_mib": 72.93359375,
+    "upstream_new_connections": 1,
+    "upstream_requests": 10864,
+    "statuses": {
+      "200": 10864
+    },
+    "errors": {},
+    "elapsed_seconds": 1.015641935999156
+  },
+  {
+    "target": "original",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 12536.61217892125,
+    "p50_ms": 0.06889200000000001,
+    "p95_ms": 0.101787,
+    "p99_ms": 0.1634,
+    "cpu_percent": 55.34435179952977,
+    "upstream_cpu_percent": 0.0,
+    "peak_rss_mib": 4.5078125,
+    "upstream_new_connections": 2,
+    "upstream_requests": 2,
+    "statuses": {
+      "200": 2,
+      "429": 12573
+    },
+    "errors": {},
+    "elapsed_seconds": 1.0299153960004332
+  },
+  {
+    "target": "previous",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 6019.330533749653,
+    "p50_ms": 0.150507,
+    "p95_ms": 0.21734799999999999,
+    "p99_ms": 0.323655,
+    "cpu_percent": 45.2848281212794,
+    "upstream_cpu_percent": 48.23818647701504,
+    "peak_rss_mib": 4.4453125,
+    "upstream_new_connections": 0,
+    "upstream_requests": 6033,
+    "statuses": {
+      "200": 6033
+    },
+    "errors": {},
+    "elapsed_seconds": 1.0157927479995124
+  },
+  {
+    "target": "enhanced",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 6090.24466436735,
+    "p50_ms": 0.15256,
+    "p95_ms": 0.220706,
+    "p99_ms": 0.294642,
+    "cpu_percent": 49.32127606087433,
+    "upstream_cpu_percent": 46.361999497221895,
+    "peak_rss_mib": 6.109375,
+    "upstream_new_connections": 0,
+    "upstream_requests": 6100,
+    "statuses": {
+      "200": 6100
+    },
+    "errors": {},
+    "elapsed_seconds": 1.0137612809994607
+  },
+  {
+    "target": "nginx",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 6571.740367265066,
+    "p50_ms": 0.124717,
+    "p95_ms": 0.194914,
+    "p99_ms": 0.431468,
+    "cpu_percent": 35.49999261498187,
+    "upstream_cpu_percent": 51.27776711052932,
+    "peak_rss_mib": 30.3046875,
+    "upstream_new_connections": 6,
+    "upstream_requests": 6580,
+    "statuses": {
+      "200": 6580
+    },
+    "errors": {},
+    "elapsed_seconds": 1.0140847180009587
+  },
+  {
+    "target": "original-unlimited",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 3296.125977192172,
+    "p50_ms": 0.27375,
+    "p95_ms": 0.445656,
+    "p99_ms": 0.751193,
+    "cpu_percent": 71.0689698442239,
+    "upstream_cpu_percent": 72.05603886983808,
+    "peak_rss_mib": 4.53515625,
+    "upstream_new_connections": 3302,
+    "upstream_requests": 3302,
+    "statuses": {
+      "200": 3302
+    },
+    "errors": {},
+    "elapsed_seconds": 1.0131003749993397
+  }
+]

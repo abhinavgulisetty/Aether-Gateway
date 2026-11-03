@@ -1,0 +1,275 @@
+{
+  "summary": {
+    "target": "nginx",
+    "concurrency": 1,
+    "run": 2,
+    "rps": 11938.766244885019,
+    "successful_rps": 11938.766244885019,
+    "p50_ms": 0.081592,
+    "p95_ms": 0.099367,
+    "p99_ms": 0.13475800000000002,
+    "cpu_percent": 40.42971963509634,
+    "generator_cpu_percent": 25.58683433832387,
+    "upstream_cpu_percent": 55.76513053116738,
+    "peak_rss_mib": 30.02734375,
+    "upstream_new_connections": 60,
+    "upstream_requests": 59709,
+    "statuses": {
+      "200": 59709
+    },
+    "errors": {},
+    "elapsed_seconds": 5.021058810998511
+  },
+  "samples": [
+    {
+      "elapsed": 0.0007205020010587759,
+      "cpu_seconds": 3.52,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.10135070799879031,
+      "cpu_seconds": 3.56,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.20222519199887756,
+      "cpu_seconds": 3.6,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.3028994119995332,
+      "cpu_seconds": 3.64,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.4035678869986441,
+      "cpu_seconds": 3.67,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.5044933879980817,
+      "cpu_seconds": 3.71,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.6051736029985477,
+      "cpu_seconds": 3.75,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.7060107279976364,
+      "cpu_seconds": 3.79,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.806704564998654,
+      "cpu_seconds": 3.84,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 0.9076115460011351,
+      "cpu_seconds": 3.89,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.0082942890003324,
+      "cpu_seconds": 3.93,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.1092556599978707,
+      "cpu_seconds": 3.96,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.2099319080007263,
+      "cpu_seconds": 4.0,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.3106897850011592,
+      "cpu_seconds": 4.04,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.4113583549988107,
+      "cpu_seconds": 4.08,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.5120000799979607,
+      "cpu_seconds": 4.13,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.6126536339979793,
+      "cpu_seconds": 4.18,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.7132918829993287,
+      "cpu_seconds": 4.22,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.8139316739980131,
+      "cpu_seconds": 4.26,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 1.9147480659994471,
+      "cpu_seconds": 4.31,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.015358838998509,
+      "cpu_seconds": 4.35,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.116162139998778,
+      "cpu_seconds": 4.38,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.2168253300005745,
+      "cpu_seconds": 4.43,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.3174729210004443,
+      "cpu_seconds": 4.47,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.4183932060004736,
+      "cpu_seconds": 4.51,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.5192858279988286,
+      "cpu_seconds": 4.55,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.620082858000387,
+      "cpu_seconds": 4.58,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.7209620930007077,
+      "cpu_seconds": 4.63,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.8217006659979234,
+      "cpu_seconds": 4.66,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 2.9225092029992084,
+      "cpu_seconds": 4.7,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.0231706829981704,
+      "cpu_seconds": 4.75,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.123841959000856,
+      "cpu_seconds": 4.79,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.2244704859986086,
+      "cpu_seconds": 4.84,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.3254266449985153,
+      "cpu_seconds": 4.89,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.426264767000248,
+      "cpu_seconds": 4.93,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.526909538999462,
+      "cpu_seconds": 4.97,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.6278310060006334,
+      "cpu_seconds": 5.01,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.7288002469977073,
+      "cpu_seconds": 5.05,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.8294222759977856,
+      "cpu_seconds": 5.09,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 3.9300582649993885,
+      "cpu_seconds": 5.13,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.0310117730005,
+      "cpu_seconds": 5.18,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.131659437000053,
+      "cpu_seconds": 5.22,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.232323673000792,
+      "cpu_seconds": 5.26,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.333221480999782,
+      "cpu_seconds": 5.28,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.434188637998886,
+      "cpu_seconds": 5.32,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.5350936529976025,
+      "cpu_seconds": 5.36,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.635947319999104,
+      "cpu_seconds": 5.4,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.73689960000047,
+      "cpu_seconds": 5.44,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.837565849000384,
+      "cpu_seconds": 5.49,
+      "rss_bytes": 31485952
+    },
+    {
+      "elapsed": 4.938533892000123,
+      "cpu_seconds": 5.52,
+      "rss_bytes": 31485952
+    }
+  ]
+}

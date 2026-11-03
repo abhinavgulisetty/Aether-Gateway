@@ -1,0 +1,32 @@
+{
+  "oha": {
+    "archive": "oha",
+    "url": "https://github.com/hatoo/oha/releases/download/v1.16.0/oha-linux-amd64",
+    "version": "1.16.0",
+    "sha256": "620bb9e16fb53eabc9a3fc45f88bdb41fefa3fee5c05e75892011ce320391716"
+  },
+  "nginx": {
+    "archive": "nginx.tar.gz",
+    "url": "https://nginx.org/download/nginx-1.31.8.tar.gz",
+    "version": "1.31.8",
+    "sha256": "0652b760b3b772d2ec17b47c2fc15d9a95e6fe35cd5b877eadc1a62d9bc75af1"
+  },
+  "prometheus": {
+    "archive": "prometheus.tar.gz",
+    "url": "https://github.com/prometheus/prometheus/releases/download/v3.15.1/prometheus-3.15.1.linux-amd64.tar.gz",
+    "version": "3.15.1",
+    "sha256": "6a726885328ad9efebbf36e876ce2fb6225468a71fd1e7ce3ba666d5f4d97a84"
+  },
+  "grafana": {
+    "archive": "grafana.tar.gz",
+    "url": "https://dl.grafana.com/oss/release/grafana-13.3.0.linux-amd64.tar.gz",
+    "version": "13.3.0",
+    "sha256": "cec8f98cc59bc1a1945833b652371a073be678c5c159a9b1695ad63c04fae5a7"
+  },
+  "node_exporter": {
+    "archive": "node_exporter.tar.gz",
+    "url": "https://github.com/prometheus/node_exporter/releases/download/v1.12.1/node_exporter-1.12.1.linux-amd64.tar.gz",
+    "version": "1.12.1",
+    "sha256": "b51d8a76aa2a9156a55d501aca6276fae09e262259a5e4e831d2c2222f084e63"
+  }
+}

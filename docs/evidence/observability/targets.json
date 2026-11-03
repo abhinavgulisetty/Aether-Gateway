@@ -1,0 +1,64 @@
+{
+  "status": "success",
+  "data": {
+    "activeTargets": [
+      {
+        "discoveredLabels": {
+          "__address__": "127.0.0.1:3000",
+          "__always_scrape_classic_histograms__": "false",
+          "__convert_classic_histograms_to_nhcb__": "false",
+          "__metrics_path__": "/metrics",
+          "__scheme__": "http",
+          "__scrape_interval__": "2s",
+          "__scrape_native_histograms__": "false",
+          "__scrape_timeout__": "2s",
+          "job": "aether"
+        },
+        "labels": {
+          "instance": "127.0.0.1:3000",
+          "job": "aether"
+        },
+        "scrapePool": "aether",
+        "scrapeUrl": "http://127.0.0.1:3000/metrics",
+        "globalUrl": "http://inc:3000/metrics",
+        "lastError": "",
+        "lastScrape": "2026-11-03T22:24:52.61395719+05:30",
+        "lastScrapeDuration": 0.000642899,
+        "health": "up",
+        "scrapeInterval": "2s",
+        "scrapeTimeout": "2s"
+      },
+      {
+        "discoveredLabels": {
+          "__address__": "127.0.0.1:9200",
+          "__always_scrape_classic_histograms__": "false",
+          "__convert_classic_histograms_to_nhcb__": "false",
+          "__metrics_path__": "/metrics",
+          "__scheme__": "http",
+          "__scrape_interval__": "2s",
+          "__scrape_native_histograms__": "false",
+          "__scrape_timeout__": "2s",
+          "job": "node"
+        },
+        "labels": {
+          "instance": "127.0.0.1:9200",
+          "job": "node"
+        },
+        "scrapePool": "node",
+        "scrapeUrl": "http://127.0.0.1:9200/metrics",
+        "globalUrl": "http://inc:9200/metrics",
+        "lastError": "",
+        "lastScrape": "2026-11-03T22:24:52.529807088+05:30",
+        "lastScrapeDuration": 0.027129163,
+        "health": "up",
+        "scrapeInterval": "2s",
+        "scrapeTimeout": "2s"
+      }
+    ],
+    "droppedTargets": [],
+    "droppedTargetCounts": {
+      "aether": 0,
+      "node": 0
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "utc": "2026-11-03T16:46:50Z",
+  "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
+  "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           39 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  8\nOn-line CPU(s) list:                     0-7\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz\nCPU family:                              6\nModel:                                   165\nThread(s) per core:                      2\nCore(s) per socket:                      4\nSocket(s):                               1\nStepping:                                2\nCPU(s) scaling MHz:                      29%\nCPU max MHz:                             4500.0000\nCPU min MHz:                             800.0000\nBogoMIPS:                                4999.90\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid mpx rdseed adx smap clflushopt intel_pt xsaveopt xsavec xgetbv1 xsaves dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp vnmi pku ospke md_clear flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               128 KiB (4 instances)\nL1i cache:                               128 KiB (4 instances)\nL2 cache:                                1 MiB (4 instances)\nL3 cache:                                8 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-7\nVulnerability Gather data sampling:      Vulnerable\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Mitigation; Aligned branch/return thunks\nVulnerability Itlb multihit:             KVM: Mitigation: Split huge pages\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Mitigation; Clear CPU buffers; SMT vulnerable\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Mitigation; Enhanced IBRS\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop\nVulnerability Srbds:                     Mitigation; Microcode\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+  "cargo": "cargo 1.93.0 (083ac5135 2025-12-15)",
+  "node": "v24.13.1",
+  "oha": "oha 1.16.0",
+  "nginx": "nginx version: nginx/1.31.8",
+  "head": "446d66ba20387f984e16833d516e5ebdfc48e57e",
+  "source_files_sha256": {
+    "Cargo.toml": "ca67f39940cc4116f7b7db7facb1cb1f7440e5bc9f8f730e15ed4d4c2802bee2",
+    "Cargo.lock": "e9e789a3dfd93ebf5551dcbcdf308e0cea360b0c8a39255c2ba1c8fd0f960067",
+    "src/balance.rs": "9a2915caf46ac2477a6a5a7d15602221c8a36a02f6880136db5f35750aa1c3d4",
+    "src/body.rs": "9b8db7f21178a18e884290547bdc410dddfb3ad61baf912d011146cf4a06b486",
+    "src/client.rs": "da1e09ccdad42bc686f7b5553b92024a3dbb7b15056e09b7b7605418894ad54d",
+    "src/config.rs": "9103b1f531fd66ac42a5e93c79c1e9e5a2bdf25d18e9577fb3a09e89bb2335b1",
+    "src/health.rs": "0d085150acdbc699e9afddc2900a293459521e14de708b9dd16deac365896b37",
+    "src/main.rs": "24d04a4a9dabaf9302fda912d2afac639d6a31b99c28c03c2e3c1c4f149812da",
+    "src/metrics.rs": "c59a016fd8b56fab466b0e860aa835404d4f688864e169bbebc392cf54a2a25f",
+    "src/middleware/auth.rs": "7595579247a68f34d8afcce393eedfaca47231215c4abd5cc9018cb6ba5db2ef",
+    "src/middleware/mod.rs": "df2cecbd6a450096b9091bd26a15eeb5752e70b34405526f73bb5df4411e24a5",
+    "src/middleware/rate_limit.rs": "f84d3259bd35662a6160e9a7bcfd186b27c176169f746c0a9d384103dfc141c3",
+    "src/proxy.rs": "de31a5d27ce594b4897c8666062624822153bc8595c69be7532903b6cb97bcc2"
+  },
+  "tracked_source_diff_sha256": "b64712c39f9201d120f9261e9ac3191971af73f519e4347493aaa184dd5f2f8a",
+  "binary_sha256": {
+    "original-unlimited": "f3a8c793e55bba5744464cbdc16b59f7af8fb0e1e2210c5ae7e8b40dc4fcb5ec",
+    "original": "3acde01163ead178c49d1ba72dd4bec2da8d9ad5f07722bd3dc6a2f0cf9fa194",
+    "previous": "72408b9c6baff6ea6af080e1e136fa4bdf787f21fb3d42cb9bc35c825e88486d",
+    "enhanced": "67f2e432f644dd9bac02bb7c23208c6c2b36ca700d5c03dac9f90355e97d549b"
+  },
+  "duration": "5s",
+  "warmup": "2s",
+  "runs": 3,
+  "concurrencies": [
+    1,
+    32,
+    128
+  ],
+  "loadavg_before": [
+    2.33642578125,
+    2.66455078125,
+    2.57421875
+  ],
+  "original_note": "original always enforces a hardcoded 10 burst / 2 rps even when YAML disables policy; original-unlimited changes only those two bucket constants to 1e12; rejected RPS is not proxy throughput",
+  "method": "HTTP/1.1, keep-alive, 256-byte response; policy disabled for all proxies; enhanced telemetry/health/breaker remain enabled; sequential alternating targets; shared host"
+}

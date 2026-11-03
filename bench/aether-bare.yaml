@@ -1,0 +1,8 @@
+listen: "127.0.0.1:3000"
+rate_limit:
+  enabled: false
+auth:
+  enabled: false
+routes:
+  - path_prefix: "/"
+    upstream: "http://127.0.0.1:9101"

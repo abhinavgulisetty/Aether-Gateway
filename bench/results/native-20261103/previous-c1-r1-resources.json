@@ -1,0 +1,280 @@
+{
+  "summary": {
+    "target": "previous",
+    "concurrency": 1,
+    "run": 1,
+    "rps": 10184.989314038587,
+    "successful_rps": 10184.989314038587,
+    "p50_ms": 0.095992,
+    "p95_ms": 0.116095,
+    "p99_ms": 0.145557,
+    "cpu_percent": 49.60327192553403,
+    "generator_cpu_percent": 21.82334794299714,
+    "upstream_cpu_percent": 49.60327192553403,
+    "peak_rss_mib": 4.41796875,
+    "upstream_new_connections": 0,
+    "upstream_requests": 50935,
+    "statuses": {
+      "200": 50935
+    },
+    "errors": {},
+    "elapsed_seconds": 5.0198301509990415
+  },
+  "samples": [
+    {
+      "elapsed": 0.00028627499705180526,
+      "cpu_seconds": 0.98,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.10054505199877894,
+      "cpu_seconds": 1.02,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.2008062360000622,
+      "cpu_seconds": 1.07,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.30106489999889163,
+      "cpu_seconds": 1.12,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.4012904299997899,
+      "cpu_seconds": 1.17,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.5015127059996303,
+      "cpu_seconds": 1.22,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.6017766939985449,
+      "cpu_seconds": 1.27,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.7020512919989415,
+      "cpu_seconds": 1.32,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.8023155579976446,
+      "cpu_seconds": 1.36,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 0.9025824269992881,
+      "cpu_seconds": 1.42,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.0028534509983729,
+      "cpu_seconds": 1.47,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.1031256769965694,
+      "cpu_seconds": 1.52,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.2033933129969228,
+      "cpu_seconds": 1.56,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.3036230009965948,
+      "cpu_seconds": 1.61,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.4038405069986766,
+      "cpu_seconds": 1.65,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.5040779069968266,
+      "cpu_seconds": 1.7,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.604296910998528,
+      "cpu_seconds": 1.74,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.7045148929973948,
+      "cpu_seconds": 1.8,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.804768977999629,
+      "cpu_seconds": 1.85,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 1.905028097997274,
+      "cpu_seconds": 1.91,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.005245553998975,
+      "cpu_seconds": 1.96,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.1054697379986465,
+      "cpu_seconds": 2.01,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.205719807996502,
+      "cpu_seconds": 2.06,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.3059731719986303,
+      "cpu_seconds": 2.12,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.4062237689977337,
+      "cpu_seconds": 2.17,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.5064828019967536,
+      "cpu_seconds": 2.22,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.606727680999029,
+      "cpu_seconds": 2.27,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.706980138998915,
+      "cpu_seconds": 2.32,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.8072266389972356,
+      "cpu_seconds": 2.38,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 2.9074749479987076,
+      "cpu_seconds": 2.43,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.0077269119974517,
+      "cpu_seconds": 2.48,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.107982772999094,
+      "cpu_seconds": 2.54,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.208207099996798,
+      "cpu_seconds": 2.59,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.3084627769967483,
+      "cpu_seconds": 2.63,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.4086964469970553,
+      "cpu_seconds": 2.68,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.5089614349999465,
+      "cpu_seconds": 2.73,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.609149758998683,
+      "cpu_seconds": 2.78,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.709394652996707,
+      "cpu_seconds": 2.83,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.8096402099981788,
+      "cpu_seconds": 2.89,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 3.9098949449980864,
+      "cpu_seconds": 2.94,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.010192155998084,
+      "cpu_seconds": 2.99,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.110491056999308,
+      "cpu_seconds": 3.04,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.210769983998034,
+      "cpu_seconds": 3.08,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.311017874999379,
+      "cpu_seconds": 3.14,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.411238949000108,
+      "cpu_seconds": 3.18,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.511477061998448,
+      "cpu_seconds": 3.23,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.611721309996938,
+      "cpu_seconds": 3.28,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.711990085997968,
+      "cpu_seconds": 3.32,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.8122431470001175,
+      "cpu_seconds": 3.38,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 4.912465983998118,
+      "cpu_seconds": 3.43,
+      "rss_bytes": 4632576
+    },
+    {
+      "elapsed": 5.012686618996668,
+      "cpu_seconds": 3.47,
+      "rss_bytes": 4632576
+    }
+  ]
+}

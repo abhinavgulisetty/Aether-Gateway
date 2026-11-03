@@ -1,0 +1,11 @@
+listen: "127.0.0.1:3000"
+rate_limit:
+  enabled: true
+  max_tokens: 1000000000
+  refill_rate: 1000000000
+auth:
+  enabled: true
+  api_keys: ["benchmark-key"]
+routes:
+  - path_prefix: "/"
+    upstream: "http://127.0.0.1:9101"

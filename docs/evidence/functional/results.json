@@ -1,0 +1,140 @@
+[
+  {
+    "check": "authentication",
+    "missing_key": 401,
+    "valid_key": 200
+  },
+  {
+    "check": "forwarding",
+    "method": "PATCH",
+    "status": 207,
+    "path": "/echo?status=207&x=a%2Fb",
+    "body": "hello-stream",
+    "multiple_connection_headers": "stripped"
+  },
+  {
+    "check": "round_robin_and_pooling",
+    "requests": 60,
+    "distribution": [
+      20,
+      20,
+      20
+    ],
+    "new_upstream_sockets_including_stats": [
+      2,
+      1,
+      1
+    ]
+  },
+  {
+    "check": "uneven_latency",
+    "slow_backend_ms": 80,
+    "round_robin": {
+      "distribution": [
+        30,
+        30,
+        30
+      ],
+      "seconds": 0.447
+    },
+    "least_active": {
+      "distribution": [
+        2,
+        44,
+        44
+      ],
+      "seconds": 0.098
+    }
+  },
+  {
+    "check": "upstream_failure",
+    "stopped": 19102,
+    "successful_requests": 30,
+    "traffic_to_stopped": 0
+  },
+  {
+    "check": "upstream_recovery",
+    "restarted": 19102,
+    "distribution": {
+      "19101": 4,
+      "19102": 4,
+      "19103": 4
+    }
+  },
+  {
+    "check": "non_idempotent_no_retry",
+    "status": 503,
+    "upstream_attempts": 1
+  },
+  {
+    "check": "circuit_breaker",
+    "open_state_observed": true,
+    "half_open_recovered": true
+  },
+  {
+    "check": "bounded_idempotent_retry",
+    "requests": 12,
+    "statuses": [
+      200
+    ]
+  },
+  {
+    "check": "response_timeout",
+    "status": 504,
+    "seconds": 0.315,
+    "per_attempt_ms": 150
+  },
+  {
+    "check": "streaming",
+    "bytes": 33554432,
+    "seconds": 0.047
+  },
+  {
+    "check": "body_deadline",
+    "truncated": true,
+    "received_bytes": 4784128,
+    "total_deadline_ms": 1500
+  },
+  {
+    "check": "admission_backpressure",
+    "limit": 8,
+    "statuses": {
+      "200": 8,
+      "503": 40
+    }
+  },
+  {
+    "check": "body_limit",
+    "known_length_status": 413
+  },
+  {
+    "check": "long_uri",
+    "forwarded_uri_overflow_status": 414,
+    "gateway_still_alive": true
+  },
+  {
+    "check": "rate_limit",
+    "burst_statuses": [
+      200,
+      200,
+      429
+    ],
+    "client_capacity_enforced": true,
+    "idle_expiry": true
+  },
+  {
+    "check": "metrics",
+    "process_collector": true,
+    "retries_timeouts_health": true
+  },
+  {
+    "check": "client_disconnect",
+    "cancellation_counted": true,
+    "active_requests_released": true
+  },
+  {
+    "check": "graceful_shutdown",
+    "in_flight_bytes": 1310720,
+    "exit_code": 0
+  }
+]
